@@ -179,56 +179,6 @@ footer{text-align:center;padding:48px 32px;border-top:1px solid var(--border)}
 .float-nav-btn.red-btn:hover{background:#FDF2F1;border-color:#F0CABB}
 
 /* RESPONSIVE */
-@media(max-width:640px){
-  .section{padding:40px 16px}
-  .hero{padding:40px 16px 28px}
-  .hero-inner{max-width:100%}
-  .hero-title{font-size:32px;letter-spacing:-.02em}
-  .hero-sub{font-size:14px}
-  .hero-rabbit{width:160px}
-  .hero-pill{font-size:12px;padding:6px 16px}
-  .section-title{font-size:22px}
-  .section-sub{font-size:13px}
-  nav{padding:0 12px;gap:0}
-  .nav-logo{font-size:16px}
-  .nav-links{gap:0}
-  .nav-links a{font-size:11px;padding:5px 7px}
-  .trivia-wrap{padding:0 8px;max-width:100%}
-  .trivia-track-outer{overflow-x:auto;overflow-y:visible;-webkit-overflow-scrolling:touch;scroll-snap-type:x mandatory;padding:2px 0 8px}
-  .trivia-track{gap:12px;padding-right:16px}
-  .tcard{flex:0 0 78%;scroll-snap-align:start}
-  .trivia-nav-btn{display:none}
-  .carousel-dots{display:none}
-  .k-grid{grid-template-columns:1fr 1fr}
-  .kcard{padding:16px 12px}
-  .kcard-title{font-size:13px}
-  .kcard-desc{font-size:12px}
-  .e-grid{grid-template-columns:1fr 1fr}
-  .e-meta{flex-direction:column;gap:8px}
-  .overlay{align-items:flex-end}
-  .modal{border-radius:20px 20px 0 0;max-height:88vh;max-width:100%;width:100%}
-  .modal-body{padding:18px 16px 28px}
-  .modal-head{padding:16px 18px 14px}
-  .modal-row{flex-direction:column;gap:10px}
-  .modal-row-img-lg{width:100%!important;max-height:200px;object-fit:contain}
-  .float-nav{right:8px;gap:6px}
-  .float-nav-btn{padding:8px 10px;font-size:10px}
-  .carousel-slide{padding:0 8px 8px}
-  .slide-card{padding:20px 16px}
-  .slide-body{flex-direction:column}
-  .slide-img{width:100%;height:160px}
-  .slide-title{font-size:20px}
-  .slide-desc{font-size:13px}
-  .poop-row{grid-template-columns:1fr}
-  .cl-container{display:none}
-}
-@media(max-width:380px){
-  .nav-links a{font-size:10px;padding:4px 5px}
-  .hero-title{font-size:28px}
-  .k-grid{grid-template-columns:1fr}
-  .e-grid{grid-template-columns:1fr}
-  .tcard{flex:0 0 88%}
-}
 
 .trivia-wrap{position:relative;max-width:760px;margin:0 auto;padding:0 56px 0 40px}
 .trivia-track-outer{overflow:hidden;padding:2px 2px 4px}
@@ -244,6 +194,62 @@ footer{text-align:center;padding:48px 32px;border-top:1px solid var(--border)}
 .trivia-nav-btn{position:absolute;top:50%;transform:translateY(-50%);width:36px;height:36px;background:var(--white);border:1.5px solid var(--border);border-radius:50%;display:flex;align-items:center;justify-content:center;cursor:pointer;font-size:18px;color:var(--brown-warm);z-index:5;transition:all .15s;box-shadow:0 2px 12px rgba(44,31,20,.08)}
 .trivia-nav-btn:hover{background:var(--caramel-pale);border-color:var(--caramel-light)}
 .trivia-prev{left:0}.trivia-next{right:0}
+
+
+/* ── MOBILE RWD ── */
+@media(max-width:640px){
+  .section{padding:40px 16px}
+  .hero{padding:40px 16px 28px}
+  .hero-inner{max-width:100%}
+  .hero-title{font-size:32px;letter-spacing:-.02em}
+  .hero-sub{font-size:14px}
+  .hero-rabbit{width:160px}
+  .hero-pill{font-size:12px;padding:6px 16px}
+  .section-title{font-size:22px}
+  .section-sub{font-size:13px}
+  nav{padding:0 12px}
+  .nav-logo{font-size:16px}
+  .nav-links{gap:0}
+  .nav-links a{font-size:11px;padding:5px 7px}
+  .trivia-wrap{padding:0 8px;max-width:100%}
+  .trivia-track-outer{overflow-x:auto;overflow-y:visible;-webkit-overflow-scrolling:touch;scroll-snap-type:x mandatory;padding:2px 0 8px}
+  .trivia-track{gap:12px;padding-right:16px;transform:none!important}
+  .tcard{flex:0 0 78%;scroll-snap-align:start}
+  .trivia-nav-btn{display:none}
+  .carousel-dots{display:none}
+  .k-grid{grid-template-columns:1fr 1fr}
+  .kcard{padding:16px 12px}
+  .kcard-title{font-size:13px}
+  .kcard-desc{font-size:12px}
+  .e-grid{grid-template-columns:1fr}
+  .e-card{white-space:normal;font-size:13px}
+  .e-meta{flex-direction:column;gap:8px}
+  .overlay{align-items:flex-end}
+  .modal{border-radius:20px 20px 0 0;max-height:88vh;max-width:100%;width:100%}
+  .modal-body{padding:18px 16px 28px}
+  .modal-head{padding:16px 18px 14px}
+  .modal-row{flex-direction:column;gap:10px}
+  .modal-row-img-lg{width:100%!important;max-height:200px;object-fit:contain}
+  .float-nav{right:6px;gap:4px;top:auto;bottom:16px;transform:none;flex-direction:row;background:rgba(250,247,242,.95);border:1.5px solid var(--border);border-radius:99px;padding:6px 10px;box-shadow:0 4px 18px rgba(44,31,20,.13)}
+  .float-nav-btn{padding:6px 10px;font-size:10px;border:none;background:transparent;box-shadow:none;flex-direction:row;gap:6px}
+  .carousel-slide{padding:0 8px 8px}
+  .slide-card{padding:20px 16px}
+  .slide-body{flex-direction:column}
+  .slide-img{width:100%;height:160px}
+  .slide-title{font-size:20px}
+  .slide-desc{font-size:13px}
+  .poop-row{grid-template-columns:1fr}
+  .cl-container{display:flex;position:static;transform:none;left:auto;width:100%;margin-top:24px}
+  .cl-drawer{width:100%;border-radius:16px;box-shadow:0 2px 12px rgba(44,31,20,.10)}
+  .cl-tab{display:none}
+}
+@media(max-width:380px){
+  .nav-links a{font-size:10px;padding:4px 5px}
+  .hero-title{font-size:28px}
+  .k-grid{grid-template-columns:1fr}
+  .tcard{flex:0 0 88%}
+}
+
 </style>
 </head>
 <body>
