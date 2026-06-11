@@ -886,7 +886,9 @@ function closeModalDirect() {
   document.body.style.position = '';
   document.body.style.top = '';
   document.body.style.width = '';
+  document.documentElement.style.scrollBehavior = 'auto';
   window.scrollTo(0, sy);
+  setTimeout(function(){ document.documentElement.style.scrollBehavior = ''; }, 50);
   var fab = document.getElementById('mobFabWrap');
   if (fab) fab.style.display = '';
 }
