@@ -136,9 +136,9 @@ footer{text-align:center;padding:48px 32px;border-top:1px solid var(--border)}
 .footer-tag{font-size:11px;color:var(--t3);background:var(--caramel-pale);padding:4px 12px;border-radius:99px}
 
 /* ── FLOATING CHECKLIST (left) ── */
-.cl-container{position:fixed;left:-268px;top:50%;transform:translateY(-50%);z-index:200;display:flex;align-items:stretch;transition:left .32s cubic-bezier(.4,0,.2,1)}
+.cl-container{position:fixed;left:-268px;top:calc(50% + 28px);transform:translateY(-50%);z-index:200;display:flex;align-items:stretch;transition:left .32s cubic-bezier(.4,0,.2,1)}
 .cl-container.open{left:0}
-.cl-drawer{width:268px;background:var(--white);border-radius:0 16px 16px 0;box-shadow:4px 0 32px rgba(44,31,20,.13);overflow:hidden;display:flex;flex-direction:column}
+.cl-drawer{width:268px;background:var(--white);border-radius:0 16px 16px 0;box-shadow:4px 0 32px rgba(44,31,20,.13);overflow:hidden;display:flex;flex-direction:column;max-height:calc(100vh - 96px)}
 .cl-drawer-head{background:linear-gradient(130deg,#EDD9BF 0%,#F5E8D2 100%);padding:18px 18px 14px;flex-shrink:0}
 .cl-drawer-label{font-size:9px;font-weight:700;color:var(--brown-dark);opacity:.65;letter-spacing:.14em;text-transform:uppercase;margin-bottom:4px}
 .cl-drawer-date{font-size:13px;font-weight:800;color:var(--brown-dark)}
