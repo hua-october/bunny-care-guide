@@ -852,6 +852,11 @@ var modalData = {
   }
 };
 
+function _blockScroll(e) {
+  var mb = document.querySelector('.modal-body');
+  if (mb && mb.contains(e.target)) return;
+  e.preventDefault();
+}
 function openModal(key) {
   var d = modalData[key];
   if (!d) return;
@@ -868,11 +873,8 @@ function openModal(key) {
   if (d.warn) extra += '<div class="warn-box">⚠️ ' + d.warn + '</div>';
   document.getElementById('mExtra').innerHTML = extra;
   document.getElementById('overlay').classList.add('open');
-  var sy = window.scrollY;
-  document.body.style.position = 'fixed';
-  document.body.style.top = '-' + sy + 'px';
-  document.body.style.width = '100%';
-  document.body.dataset.scrollY = sy;
+  document.body.style.overflow = 'hidden';
+  document.addEventListener('touchmove', _blockScroll, {passive:false});
   var mb = document.querySelector('.modal-body');
   if (mb) mb.scrollTop = 0;
 }
@@ -882,13 +884,8 @@ function closeModal(e) {
 }
 function closeModalDirect() {
   document.getElementById('overlay').classList.remove('open');
-  var sy = parseInt(document.body.dataset.scrollY || '0');
-  document.body.style.position = '';
-  document.body.style.top = '';
-  document.body.style.width = '';
-  document.documentElement.style.scrollBehavior = 'auto';
-  window.scrollTo(0, sy);
-  setTimeout(function(){ document.documentElement.style.scrollBehavior = ''; }, 50);
+  document.body.style.overflow = '';
+  document.removeEventListener('touchmove', _blockScroll);
   var fab = document.getElementById('mobFabWrap');
   if (fab) fab.style.display = '';
 }
@@ -1000,11 +997,8 @@ openModal = function(key) {
   if (d.warn) extra += '<div class="warn-box">⚠️ ' + d.warn + '</div>';
   document.getElementById('mExtra').innerHTML = extra;
   document.getElementById('overlay').classList.add('open');
-  var sy = window.scrollY;
-  document.body.style.position = 'fixed';
-  document.body.style.top = '-' + sy + 'px';
-  document.body.style.width = '100%';
-  document.body.dataset.scrollY = sy;
+  document.body.style.overflow = 'hidden';
+  document.addEventListener('touchmove', _blockScroll, {passive:false});
   var mb = document.querySelector('.modal-body');
   if (mb) mb.scrollTop = 0;
 };
