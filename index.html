@@ -108,7 +108,7 @@ nav{position:sticky;top:0;z-index:90;height:56px;background:rgba(250,247,242,.9)
 .modal-row-title{font-size:14px;font-weight:700;color:var(--brown-dark);margin-bottom:3px}
 .modal-row-sub{font-size:14px;color:var(--t2);line-height:1.5}
 .modal-row-img{width:80px;height:80px;object-fit:contain;border-radius:10px;background:var(--caramel-pale);flex-shrink:0;padding:4px}
-.modal-row-img-lg{width:280px;height:auto;max-height:340px;object-fit:contain;border-radius:12px;flex-shrink:0}
+.modal-row-img-lg{width:200px;height:auto;max-height:260px;object-fit:contain;border-radius:12px;flex-shrink:0}
 .tip-box{background:var(--sage-pale);border-left:3px solid var(--sage);border-radius:0 8px 8px 0;padding:12px 16px;font-size:12px;color:#3A5A30;line-height:1.6;margin-top:16px}
 .warn-box{background:#FFF8EC;border-left:3px solid #E6A817;border-radius:0 8px 8px 0;padding:12px 16px;font-size:12px;color:#7A5510;line-height:1.6;margin-top:16px}
 
@@ -957,11 +957,11 @@ openModal = function(key) {
     d.items.forEach(function(it){
       rh+='<div style="display:flex;align-items:flex-start;gap:10px;padding:12px 0;border-bottom:1px solid #F5EFE5"><div class="modal-badge '+it.cls+'" style="flex-shrink:0;margin-top:2px">'+it.n+'</div><div><div class="modal-row-title" style="line-height:1.4;white-space:normal">'+it.t+'</div><div class="modal-row-sub" style="white-space:normal">'+it.s+'</div></div></div>';
     });
-    list='<div class="group-img-wrap" style="display:flex;gap:20px;align-items:center">'+(imgSrc?'<img class="group-img-side" style="width:260px;max-height:360px;object-fit:contain;flex-shrink:0;border-radius:12px" src="'+imgSrc+'" alt="">':'')+ '<div style="flex:1;min-width:0;padding:12px 0">'+rh+'</div></div>';
+    list='<div class="group-img-wrap" style="display:flex;gap:20px;align-items:flex-start">'+(imgSrc?'<img class="group-img-side" style="width:240px;max-height:320px;object-fit:contain;flex-shrink:0;border-radius:12px" src="'+imgSrc+'" alt="">':'')+ '<div style="flex:1;min-width:0;padding:12px 0">'+rh+'</div></div>';
   } else {
     d.items.forEach(function(it) {
       if (it.bigImg && it.img) {
-        list += '<div class="modal-row bigimg-row" style="align-items:center;gap:16px"><div style="flex:1;min-width:0"><div style="display:flex;align-items:center;gap:8px;margin-bottom:6px"><div class="modal-badge ' + it.cls + '">' + it.n + '</div><div class="modal-row-title" style="white-space:normal;line-height:1.4">' + it.t + '</div></div><div class="modal-row-sub">' + it.s + '</div></div><img class="modal-row-img-lg" src="' + it.img + '" alt="" style="flex-shrink:0;width:280px;height:auto;max-height:340px;object-fit:contain;border-radius:12px"></div>';
+        list += '<div class="modal-row bigimg-row" style="align-items:center;gap:16px"><div style="flex:1;min-width:0"><div style="display:flex;align-items:center;gap:8px;margin-bottom:6px"><div class="modal-badge ' + it.cls + '">' + it.n + '</div><div class="modal-row-title" style="white-space:normal;line-height:1.4">' + it.t + '</div></div><div class="modal-row-sub">' + it.s + '</div></div><img class="modal-row-img-lg" src="' + it.img + '" alt="" style="flex-shrink:0;width:200px;height:auto;max-height:260px;object-fit:contain;border-radius:12px"></div>';
       } else {
         list += '<div class="modal-row"><div class="modal-badge ' + it.cls + '">' + it.n + '</div><div style="flex:1"><div class="modal-row-title">' + it.t + '</div><div class="modal-row-sub">' + it.s + '</div></div>' + (it.img ? '<img class="modal-row-img" src="' + it.img + '" alt="">' : '') + '</div>';
       }
@@ -1006,9 +1006,7 @@ initChecklist();
 
 <!-- Mobile daily card overlay -->
 <div id="mobDailyOverlay" class="mob-daily-overlay" onclick="if(event.target===this)closeMobDaily()">
-  <div class="mob-daily-sheet" id="mobDailySheet">
-    <button onclick="closeMobDaily()" style="position:absolute;top:14px;right:16px;width:32px;height:32px;border-radius:50%;border:none;background:rgba(44,31,20,.1);font-size:18px;cursor:pointer;display:flex;align-items:center;justify-content:center;color:var(--brown-dark,#4a2e12);z-index:10">✕</button>
-  </div>
+  <div class="mob-daily-sheet" id="mobDailySheet"></div>
 </div>
 
 
@@ -1035,6 +1033,12 @@ function openMobDaily(){
   var sheet = document.getElementById('mobDailySheet');
   var src = document.getElementById('clDrawer');
   if(src) sheet.innerHTML = src.innerHTML;
+  // inject close button
+  var closeBtn = document.createElement('button');
+  closeBtn.innerHTML = '✕';
+  closeBtn.setAttribute('onclick','closeMobDaily()');
+  closeBtn.style.cssText = 'position:absolute;top:14px;right:16px;width:32px;height:32px;border-radius:50%;border:none;background:rgba(44,31,20,.1);font-size:16px;cursor:pointer;display:flex;align-items:center;justify-content:center;color:#4a2e12;z-index:10';
+  sheet.appendChild(closeBtn);
   var overlay = document.getElementById('mobDailyOverlay');
   overlay.classList.remove('hidden');
   overlay.style.display = 'flex';
