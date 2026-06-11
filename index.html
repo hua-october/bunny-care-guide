@@ -868,8 +868,13 @@ function openModal(key) {
   if (d.warn) extra += '<div class="warn-box">⚠️ ' + d.warn + '</div>';
   document.getElementById('mExtra').innerHTML = extra;
   document.getElementById('overlay').classList.add('open');
-  document.body.style.overflow = 'hidden';
-  var mb=document.querySelector('.modal-body');if(mb)mb.scrollTop=0;
+  var sy = window.scrollY;
+  document.body.style.position = 'fixed';
+  document.body.style.top = '-' + sy + 'px';
+  document.body.style.width = '100%';
+  document.body.dataset.scrollY = sy;
+  var mb = document.querySelector('.modal-body');
+  if (mb) mb.scrollTop = 0;
 }
 
 function closeModal(e) {
@@ -877,7 +882,11 @@ function closeModal(e) {
 }
 function closeModalDirect() {
   document.getElementById('overlay').classList.remove('open');
-  document.body.style.overflow = '';
+  var sy = parseInt(document.body.dataset.scrollY || '0');
+  document.body.style.position = '';
+  document.body.style.top = '';
+  document.body.style.width = '';
+  window.scrollTo(0, sy);
   var fab = document.getElementById('mobFabWrap');
   if (fab) fab.style.display = '';
 }
@@ -989,8 +998,13 @@ openModal = function(key) {
   if (d.warn) extra += '<div class="warn-box">⚠️ ' + d.warn + '</div>';
   document.getElementById('mExtra').innerHTML = extra;
   document.getElementById('overlay').classList.add('open');
-  document.body.style.overflow = 'hidden';
-  var mb=document.querySelector('.modal-body');if(mb)mb.scrollTop=0;
+  var sy = window.scrollY;
+  document.body.style.position = 'fixed';
+  document.body.style.top = '-' + sy + 'px';
+  document.body.style.width = '100%';
+  document.body.dataset.scrollY = sy;
+  var mb = document.querySelector('.modal-body');
+  if (mb) mb.scrollTop = 0;
 };
 
 // ── INIT ──
