@@ -17,6 +17,7 @@
   --red:#B83018;--red-pale:#FDF2F1;
 }
 html{scroll-behavior:smooth}
+html,body{overflow-x:hidden}
 body{font-family:'Noto Sans TC',sans-serif;background:var(--cream);color:var(--t1);-webkit-font-smoothing:antialiased;line-height:1.6}
 
 /* NAV */
@@ -179,40 +180,54 @@ footer{text-align:center;padding:48px 32px;border-top:1px solid var(--border)}
 
 /* RESPONSIVE */
 @media(max-width:640px){
-  .section{padding:48px 16px}
-  .hero{padding:48px 20px 32px}
+  .section{padding:40px 16px}
+  .hero{padding:40px 16px 28px}
   .hero-inner{max-width:100%}
-  .hero-title{font-size:34px;letter-spacing:-.02em}
-  .hero-sub{font-size:15px}
-  .hero-rabbit{width:180px}
-  .section-title{font-size:24px}
-  .section-sub{font-size:14px}
-  nav{padding:0 16px}
-  .nav-links{gap:2px}
-  .nav-links a{font-size:12px;padding:6px 8px}
-  .trivia-wrap{padding:0 16px;max-width:100%}
+  .hero-title{font-size:32px;letter-spacing:-.02em}
+  .hero-sub{font-size:14px}
+  .hero-rabbit{width:160px}
+  .hero-pill{font-size:12px;padding:6px 16px}
+  .section-title{font-size:22px}
+  .section-sub{font-size:13px}
+  nav{padding:0 12px;gap:0}
+  .nav-logo{font-size:16px}
+  .nav-links{gap:0}
+  .nav-links a{font-size:11px;padding:5px 7px}
+  .trivia-wrap{padding:0 8px;max-width:100%}
   .trivia-track-outer{overflow-x:auto;overflow-y:visible;-webkit-overflow-scrolling:touch;scroll-snap-type:x mandatory;padding:2px 0 8px}
   .trivia-track{gap:12px;padding-right:16px}
-  .tcard{flex:0 0 75%;scroll-snap-align:start}
+  .tcard{flex:0 0 78%;scroll-snap-align:start}
   .trivia-nav-btn{display:none}
   .carousel-dots{display:none}
   .k-grid{grid-template-columns:1fr 1fr}
-  .kcard{padding:18px 14px}
-  .kcard-title{font-size:14px}
+  .kcard{padding:16px 12px}
+  .kcard-title{font-size:13px}
   .kcard-desc{font-size:12px}
   .e-grid{grid-template-columns:1fr 1fr}
+  .e-meta{flex-direction:column;gap:8px}
   .overlay{align-items:flex-end}
-  .modal{border-radius:20px 20px 0 0;max-height:88vh;max-width:100%}
-  .modal-body{padding:20px 18px 28px}
-  .modal-head{padding:18px 20px 14px}
+  .modal{border-radius:20px 20px 0 0;max-height:88vh;max-width:100%;width:100%}
+  .modal-body{padding:18px 16px 28px}
+  .modal-head{padding:16px 18px 14px}
   .modal-row{flex-direction:column;gap:10px}
   .modal-row-img-lg{width:100%!important;max-height:200px;object-fit:contain}
   .float-nav{right:8px;gap:6px}
   .float-nav-btn{padding:8px 10px;font-size:10px}
-  .carousel-slide{padding:0 16px 8px}
+  .carousel-slide{padding:0 8px 8px}
+  .slide-card{padding:20px 16px}
   .slide-body{flex-direction:column}
   .slide-img{width:100%;height:160px}
+  .slide-title{font-size:20px}
+  .slide-desc{font-size:13px}
+  .poop-row{grid-template-columns:1fr}
   .cl-container{display:none}
+}
+@media(max-width:380px){
+  .nav-links a{font-size:10px;padding:4px 5px}
+  .hero-title{font-size:28px}
+  .k-grid{grid-template-columns:1fr}
+  .e-grid{grid-template-columns:1fr}
+  .tcard{flex:0 0 88%}
 }
 
 .trivia-wrap{position:relative;max-width:760px;margin:0 auto;padding:0 56px 0 40px}
